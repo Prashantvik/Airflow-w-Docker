@@ -1,0 +1,7 @@
+-General Commands
+
+-First time pulling the image
+    docker build --pull --rm -f "Dockerfile" -t airflow "." 
+
+-Running docker compose file
+    docker compose -f "docker-compose.yml" up -d --build
