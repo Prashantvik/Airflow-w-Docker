@@ -34,7 +34,7 @@ with DAG(
     default_args=default_args,
     dag_id="dag_with_python_operator",
     description="Our first dag using python operator",
-    start_date=datetime(2021, 10, 6),
+    start_date=datetime(2024, 3, 9),
     schedule_interval="@daily",
 ) as dag:
 
