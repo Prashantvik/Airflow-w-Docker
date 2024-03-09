@@ -1,52 +1,43 @@
+from datetime import datetime, timedelta
 from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
-from airflow.utils.dates import days_ago
-from datetime import datetime
-import requests
+from airflow.operators.bash import BashOperator
 
 
-def print_welcome():
-    print('Welcome to Airflow!')
+default_args = {
+    "owner": "Prashantvik",
+    "retries": 5,
+    "retry_delay": timedelta(minutes=2),
+}
 
 
-def print_date():
-    print('Today is {}'.format(datetime.today().date()))
+with DAG(
+    dag_id="our_first_dag_v5",
+    default_args=default_args,
+    description="This is our first dag that we write",
+    start_date=datetime(2021, 7, 29, 2),
+    schedule_interval="@daily",
+) as dag:
+    task1 = BashOperator(
+        task_id="first_task", bash_command="echo hello world, this is the first task!"
+    )
 
+    task2 = BashOperator(
+        task_id="second_task",
+        bash_command="echo hey, I am task2 and will be running after task1!",
+    )
 
-def print_random_quote():
-    response = requests.get('https://api.quotable.io/random')
-    quote = response.json()['content']
-    print('Quote of the day: "{}"'.format(quote))
+    task3 = BashOperator(
+        task_id="thrid_task",
+        bash_command="echo hey, I am task3 and will be running after task1 at the same time as task2!",
+    )
 
+    # Task dependency method 1
+    # task1.set_downstream(task2)
+    # task1.set_downstream(task3)
 
-dag = DAG(
-    'welcome_dag',
-    default_args={'start_date': days_ago(1)},
-    schedule_interval='0 23 * * *',
-    catchup=False
-)
+    # Task dependency method 2
+    # task1 >> task2
+    # task1 >> task3
 
-
-print_welcome_task = PythonOperator(
-    task_id='print_welcome',
-    python_callable=print_welcome,
-    dag=dag
-)
-
-
-print_date_task = PythonOperator(
-    task_id='print_date',
-    python_callable=print_date,
-    dag=dag
-)
-
-
-print_random_quote = PythonOperator(
-    task_id='print_random_quote',
-    python_callable=print_random_quote,
-    dag=dag
-)
-
-
-# Set the dependencies between the tasks
-print_welcome_task >> print_date_task >> print_random_quote
+    # Task dependency method 3
+    task1 >> [task2, task3]
