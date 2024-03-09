@@ -17,6 +17,7 @@ with DAG(
     start_date=datetime(2021, 7, 29, 2),
     schedule_interval="@daily",
 ) as dag:
+
     task1 = BashOperator(
         task_id="first_task", bash_command="echo hello world, this is the first task!"
     )
