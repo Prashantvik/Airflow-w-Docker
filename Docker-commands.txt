@@ -1,7 +1,22 @@
 -General Commands
 
+
 -First time pulling the image
     docker build --pull --rm -f "Dockerfile" -t airflow "." 
 
 -Running docker compose file
     docker compose -f "docker-compose.yml" up -d --build
+
+-In case of deletion of repo or some issue, run airflow in detached mode
+    docker compose up -d 
+    "What does Docker compose up do?
+    If there are existing containers for a service, and the service's configuration or image was changed after the container's creation, docker compose up picks up the changes by stopping and recreating the containers (preserving mounted volumes)."
+
+-To run docker inner bash, exit to exit container 
+     docker exec -it 9286e959ea51 bash
+
+-To run backfill of the dag in container bash
+     airflow dags backfill -s 2024-03-01 -e 2024-03-09 dag_with_catchup_backfill
+
+-To run postgres using docker
+    docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=airflow -p 5432:5432 -d postgres

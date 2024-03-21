@@ -1,0 +1,34 @@
+[2024-03-09T09:32:57.195+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_catchup_backfill.task1 backfill__2024-03-03T00:00:00+00:00 [queued]>
+[2024-03-09T09:32:57.217+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_catchup_backfill.task1 backfill__2024-03-03T00:00:00+00:00 [queued]>
+[2024-03-09T09:32:57.217+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 6
+[2024-03-09T09:32:57.267+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): task1> on 2024-03-03 00:00:00+00:00
+[2024-03-09T09:32:57.274+0000] {standard_task_runner.py:60} INFO - Started process 236 to run task
+[2024-03-09T09:32:57.281+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'dag_with_catchup_backfill', 'task1', 'backfill__2024-03-03T00:00:00+00:00', '--job-id', '20', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag_catchup_backfill.py', '--cfg-path', '/tmp/tmp7aiwy_1m']
+[2024-03-09T09:32:57.284+0000] {standard_task_runner.py:88} INFO - Job 20: Subtask task1
+[2024-03-09T09:32:57.445+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_catchup_backfill.task1 backfill__2024-03-03T00:00:00+00:00 [running]> on host 9286e959ea51
+[2024-03-09T09:32:57.636+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Prashantvik' AIRFLOW_CTX_DAG_ID='dag_with_catchup_backfill' AIRFLOW_CTX_TASK_ID='task1' AIRFLOW_CTX_EXECUTION_DATE='2024-03-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='backfill__2024-03-03T00:00:00+00:00'
+[2024-03-09T09:32:57.638+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-09T09:32:57.639+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'echo This is a simple bash command!']
+[2024-03-09T09:32:57.647+0000] {subprocess.py:86} INFO - Output:
+[2024-03-09T09:32:57.649+0000] {subprocess.py:93} INFO - This is a simple bash command!
+[2024-03-09T09:32:57.650+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-09T09:32:57.749+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dag_with_catchup_backfill, task_id=task1, execution_date=20240303T000000, start_date=20240309T093257, end_date=20240309T093257
+[2024-03-09T09:32:57.859+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-09T09:32:57.904+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-03-09T09:43:37.605+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_with_catchup_backfill.task1 backfill__2024-03-03T00:00:00+00:00 [queued]>
+[2024-03-09T09:43:37.634+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_with_catchup_backfill.task1 backfill__2024-03-03T00:00:00+00:00 [queued]>
+[2024-03-09T09:43:37.635+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 6
+[2024-03-09T09:43:37.705+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): task1> on 2024-03-03 00:00:00+00:00
+[2024-03-09T09:43:37.713+0000] {standard_task_runner.py:60} INFO - Started process 737 to run task
+[2024-03-09T09:43:37.718+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'dag_with_catchup_backfill', 'task1', 'backfill__2024-03-03T00:00:00+00:00', '--job-id', '22', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/dag_catchup_backfill.py', '--cfg-path', '/tmp/tmppjbpbkjn']
+[2024-03-09T09:43:37.720+0000] {standard_task_runner.py:88} INFO - Job 22: Subtask task1
+[2024-03-09T09:43:37.998+0000] {task_command.py:423} INFO - Running <TaskInstance: dag_with_catchup_backfill.task1 backfill__2024-03-03T00:00:00+00:00 [running]> on host 9286e959ea51
+[2024-03-09T09:43:38.274+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Prashantvik' AIRFLOW_CTX_DAG_ID='dag_with_catchup_backfill' AIRFLOW_CTX_TASK_ID='task1' AIRFLOW_CTX_EXECUTION_DATE='2024-03-03T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='backfill__2024-03-03T00:00:00+00:00'
+[2024-03-09T09:43:38.276+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-03-09T09:43:38.278+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'echo This is a simple bash command!']
+[2024-03-09T09:43:38.290+0000] {subprocess.py:86} INFO - Output:
+[2024-03-09T09:43:38.292+0000] {subprocess.py:93} INFO - This is a simple bash command!
+[2024-03-09T09:43:38.293+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-03-09T09:43:38.418+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=dag_with_catchup_backfill, task_id=task1, execution_date=20240303T000000, start_date=20240309T094337, end_date=20240309T094338
+[2024-03-09T09:43:38.535+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-09T09:43:38.601+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
